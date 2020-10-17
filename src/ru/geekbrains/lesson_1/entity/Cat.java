@@ -7,6 +7,7 @@ public class Cat implements Participant {
     private String name;
     private int maxDistance;
     private float maxJumpHeight;
+    private boolean looser = false;
 
     public Cat(String name, int maxDistance, float maxJumpHeight) {
         this.name = name;
@@ -15,24 +16,40 @@ public class Cat implements Participant {
     }
 
     @Override
-    public boolean isRun(Track track) {
-        System.out.println(name + " runs " + track.getTrackLength() + " m.");
-        if (track.getTrackLength() < maxDistance){
-            System.out.println(name + " ran the distance");
-            return true;
+    public void run(Track track) {
+        if (!looser){
+            System.out.println(name + " is running");
         }
-        System.out.println(name + " fail to run the distance");
-        return false;
     }
 
     @Override
-    public boolean isJump(Barrier barrier) {
-        System.out.println(name + " is jumping for " + barrier.getBarrierHeight() + " m.");
-        if (barrier.getBarrierHeight() < maxJumpHeight){
-            System.out.println(name + " jumped over the barrier");
-            return true;
+    public void jump(Barrier barrier) {
+        if (!looser){
+            System.out.println(name + " is jumping");
         }
-        System.out.println(name + " didn't jump over the barrier");
-        return false;
+    }
+
+    @Override
+    public void isLost() {
+        looser = true;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getMaxDistance() {
+        return maxDistance;
+    }
+
+    @Override
+    public float getMaxJumpHeight() {
+        return maxJumpHeight;
+    }
+
+    public boolean isLooser() {
+        return looser;
     }
 }

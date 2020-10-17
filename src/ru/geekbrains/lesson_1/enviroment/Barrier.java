@@ -8,12 +8,17 @@ public class Barrier {
     public Barrier(float barrierHeight) {
         this.barrierHeight = barrierHeight;
     }
-
-    public void jump (String name, Participant[] participants){
-        System.out.println(name + " is jumping");
+    public boolean isJump (Participant participants){
+        if (barrierHeight <= participants.getMaxJumpHeight()){
+            System.out.println(participants.getName() + " successfully jumped over the barrier");
+            return true;
+        }
+        System.out.println(participants.getName() + " didn't jump over the barrier");
+        return false;
     }
 
-    public float getBarrierHeight() {
-        return barrierHeight;
+    @Override
+    public String toString() {
+        return "Participants jump for " + barrierHeight + " m.";
     }
 }

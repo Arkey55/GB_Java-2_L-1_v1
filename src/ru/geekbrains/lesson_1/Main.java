@@ -19,21 +19,34 @@ public class Main {
         Object[] obstacles = {
                 new Track(10),
                 new Barrier(1.3f),
-                new Track(15),
+                new Track(40),
                 new Barrier(1.7f),
-                new Track(20)
+                new Track(50)
         };
 
-        aaa(participants, obstacles);
+        runTheTrack(participants, obstacles);
 
     }
-    static void aaa(Participant[] participants, Object[] obstacles){
-        for (Participant participant : participants) {
-            for (Object obstacle : obstacles) {
+
+    private static void runTheTrack(Participant[] participants, Object[] obstacles){
+        for (Object obstacle : obstacles) {
+            System.out.println(obstacle);
+            for (Participant participant : participants) {
                 if (obstacle instanceof Track) {
-                    if (!participant.isRun((Track) obstacle)) break;
+                    if (!participant.isLooser()) {
+                        participant.run((Track) obstacle);
+                        if (!((Track) obstacle).isRun(participant)) {
+                            participant.isLost();
+                        }
+                    }
+
                 } else {
-                    if (!participant.isJump((Barrier) obstacle)) break;
+                    if (!participant.isLooser()) {
+                        participant.jump((Barrier) obstacle);
+                        if (!((Barrier) obstacle).isJump(participant)) {
+                            participant.isLost();
+                        }
+                    }
                 }
             }
         }

@@ -8,12 +8,17 @@ public class Track {
     public Track(int trackLength) {
         this.trackLength = trackLength;
     }
-
-    public void run (String name, Participant[] participants){
-        System.out.println(name + " is running");
+    public boolean isRun (Participant participants){
+        if (trackLength <= participants.getMaxDistance()){
+            System.out.println(participants.getName() + " ran successfully");
+            return true;
+        }
+        System.out.println(participants.getName() + " fail to run the distance");
+        return false;
     }
 
-    public int getTrackLength() {
-        return trackLength;
+    @Override
+    public String toString() {
+        return "Participants run " + trackLength + " m.";
     }
 }
