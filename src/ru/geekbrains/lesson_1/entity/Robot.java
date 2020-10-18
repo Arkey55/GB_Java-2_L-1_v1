@@ -9,7 +9,6 @@ public class Robot implements Participant {
     private float maxJumpHeight;
     private boolean looser = false;
 
-
     public Robot(String name, int maxDistance, float maxJumpHeight) {
         this.name = name;
         this.maxDistance = maxDistance;
@@ -49,7 +48,7 @@ public class Robot implements Participant {
     public float getMaxJumpHeight() {
         return maxJumpHeight;
     }
-
+    @Override
     public boolean isLooser() {
         return looser;
     }

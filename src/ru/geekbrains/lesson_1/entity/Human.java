@@ -33,19 +33,19 @@ public class Human implements Participant {
     public void isLost() {
         looser = true;
     }
-
+    @Override
     public String getName() {
         return name;
     }
-
+    @Override
     public int getMaxDistance() {
         return maxDistance;
     }
-
+    @Override
     public float getMaxJumpHeight() {
         return maxJumpHeight;
     }
-
+    @Override
     public boolean isLooser() {
         return looser;
     }

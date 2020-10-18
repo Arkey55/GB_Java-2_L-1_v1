@@ -48,7 +48,7 @@ public class Cat implements Participant {
     public float getMaxJumpHeight() {
         return maxJumpHeight;
     }
-
+    @Override
     public boolean isLooser() {
         return looser;
     }

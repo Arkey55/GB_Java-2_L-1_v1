@@ -17,9 +17,9 @@ public class Main {
         };
 
         Object[] obstacles = {
-                new Track(10),
+                new Track(20),
                 new Barrier(1.3f),
-                new Track(40),
+                new Track(30),
                 new Barrier(1.7f),
                 new Track(50)
         };

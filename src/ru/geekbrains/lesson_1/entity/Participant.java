@@ -7,8 +7,8 @@ public interface Participant {
     void run(Track track);
     void jump(Barrier barrier);
     void isLost();
-    boolean isLooser();
     String getName();
     int getMaxDistance();
     float getMaxJumpHeight();
+    boolean isLooser();
 }
